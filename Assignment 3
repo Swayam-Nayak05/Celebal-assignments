@@ -7,4 +7,19 @@
 
 4) SELECT * FROM CITY WHERE COUNTRYCODE='JPN';
 
-5) 
+5) SELECT CITY,STATE FROM STATION;
+
+6) SELECT DISTINCT CITY FROM STATION WHERE MOD(ID,2)=0;
+
+7) SELECT (COUNT(CITY)-COUNT(DISTINCT CITY)) AS DIFF FROM STATION;
+
+8) select CITY, LENGTH(CITY) from STATION where LENGTH(CITY) =3 order by 1 limit 1;
+select CITY, LENGTH(CITY) from STATION where LENGTH(CITY) = 21 order by 1 limit 1;
+
+9) SELECT FLOOR(AVG(POPULATION)) FROM CITY;
+
+10) SELECT country.continent, FLOOR(AVG(city.population))
+FROM city
+INNER JOIN country
+ON city.countryCode = country.code
+GROUP BY country.continent
