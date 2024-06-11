@@ -5,3 +5,46 @@
   print(a-b)
   print(a*b)
 
+# 2)
+from itertools import groupby
+if __name__ == '__main__':
+    s = input().rstrip()
+    s_grouped = list((len(list(g)), int(k)) for k, g in groupby(s))
+    for c in s_grouped:
+        print(c, end=' ')
+        
+
+# 3)
+def minion_game(string):
+    s=string
+    vow=0
+    con=0
+    kev=['A', 'E', 'I', 'O', 'U']
+    for i in range(len(s)):
+        if s[i] in kev:
+            vow+=len(s)-i
+        else:
+            con+=len(s)-i
+            
+    if vow>con:
+        print("Kevin", vow)
+    elif vow<con:
+        print("Stuart", con)
+    else:
+        print("Draw")
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
+
+# 4)
+def is_leap(year):
+    leap = False
+    if year % 400==0 or year % 4==0 and year % 100!=0: 
+        leap = True 
+    else:
+        leap = False 
+    return leap
+
+year = int(input())
+print(is_leap(year))
