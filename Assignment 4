@@ -48,3 +48,24 @@ def is_leap(year):
 
 year = int(input())
 print(is_leap(year))
+
+
+# 5)
+from itertools import combinations
+n=int(input())
+ls=input().split()
+k=int(input())
+combination=list(combinations(ls,k))
+count=0
+for combo in combination:
+    if 'a' in combo:
+        count+=1
+print(count/len(combination))
+
+# 6)
+n = int(input())
+integer_list = tuple(map(int, input().split()))
+result=hash(integer_list)
+print(result)
+
+
