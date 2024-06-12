@@ -1,3 +1,11 @@
 1) Select distinct city from station where left(city,1) in ('a', 'e', 'i', 'o', 'u') and right(city,1) in ('a', 'e', 'i', 'o', 'u')
 
-2) 
+2) Select MAX(POPULATION) - MIN(POPULATION) As Diff from CITY;
+
+5) 
+Select c.name from 
+city as c inner join country as y 
+on c.countrycode= y.code 
+where continent='Africa'
+
+3) 
