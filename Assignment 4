@@ -2,10 +2,45 @@
 
 2) Select MAX(POPULATION) - MIN(POPULATION) As Diff from CITY;
 
+3) 
+WITH data AS(
+SELECT
+MIN(LAT_N) AS x1,
+MAX(LAT_N) AS x2,
+MIN(LONG_W) AS y1,
+MAX(LONG_W) AS y2
+FROM station)
+SELECT ROUND(SQRT(POWER((x1 - x2),2) + POWER((y1 - y2),2)),4)
+FROM data
+
+
+4) 
+SELECT ROUND(LAT_N, 4) FROM (
+SELECT ROW_NUMBER() OVER(ORDER BY LAT_N) as "ID_R", LAT_N FROM STATION ORDER BY LAT_N ) as S WHERE S.ID_R = (SELECT (COUNT(LAT_N) + 1 )/ 2 FROM STATION);
+
+
 5) 
 Select c.name from 
 city as c inner join country as y 
 on c.countrycode= y.code 
 where continent='Africa'
 
-3) 
+
+6)
+Select c.name from 
+city as c inner join country as y 
+on c.countrycode= y.code 
+where continent='Africa'
+
+7)
+SELECT 
+CASE
+  WHEN Grade >= 8 THEN Name
+  ELSE NULL
+END AS Name, Grade, Marks 
+FROM Students INNER JOIN Grades 
+ON Students.Marks BETWEEN Grades.Min_Mark AND Grades.Max_Mark 
+ORDER BY Grade DESC, Name ASC, Marks ASC
+
+
+8) 
