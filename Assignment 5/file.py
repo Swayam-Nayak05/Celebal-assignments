@@ -80,7 +80,7 @@ target_engine_string = pymysql.connect(
         user='root',  
         password = "Swayam@9876", 
         db='mydb', 
-        ) 
+        )   
       
 ur = target_engine_string.cursor()
 
